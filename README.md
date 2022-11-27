@@ -1,31 +1,15 @@
-# transformers-into-vaes
+# transformers를 활용한 VAE를 만들려는 시도
 
-Code for [**_Finetuning Pretrained Transformers into Variational Autoencoders_**](https://aclanthology.org/2021.insights-1.5/) (our submission to NLP Insights Workshop 2021).
 
-## Gathering data used in the paper:
-1. Download all data (penn, snli, yahoo, yelp) from [this](https://github.com/ChunyuanLI/Optimus/blob/master/data/download_datasets.md) repository.
+## 현존하는 Transformer VAE
+### 1.Optimus: the first pre-trained Big VAE language model
+EMNLP 2020 paper
+Microsoft Research 팀 제작
 
-2. Change data path in `base_models.py` accordingly.
+문제: Interpolation이 전혀 안 됨... -> 사실상 VAE의 역할을 해낸다고 볼 수 없음
 
-## Running experiments:
 
-1. Install dependencies.
-```bash
-pip install -r requirements.txt
-```
+### 2. Finetuning Pretrained Transformers into Variational Autoencoders
 
-2. Run phase 1 (encoder only training):
-```
-./run_encoder_training snli
-```
-
-3. Run phase 2 (full training):
-```bash
-./run_training snli <path_to_checkpoint_from_phase_1>
-```
-
-## Calculating metrics:
-```bash
-python evaluate_all.py -d snli -bs 256 -c <path_to_config_file> -ckpt <path_to_checkpoint_file> 
-```
+문제: beam search대신 greedy로 출력하면 똑같은 문장만 계속 나옴 -> posterior collapse 전혀 해결하지 못함! 
 
