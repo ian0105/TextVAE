@@ -7,6 +7,8 @@ EMNLP 2020 paper
 Microsoft Research 팀 제작
 
 문제: Interpolation이 전혀 안 됨... -> 사실상 VAE의 역할을 해낸다고 볼 수 없음
+![Selection_089](https://user-images.githubusercontent.com/61653249/204124830-132a0e1c-1e12-4b8f-ba04-20b4b3e53920.png)
+
 
 
 ### 2. Finetuning Pretrained Transformers into Variational Autoencoders
